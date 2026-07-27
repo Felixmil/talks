@@ -24,6 +24,15 @@ h1 <- regmatches(body, regexpr("<h1>.*?</h1>", body, perl = TRUE))
 heading <- if (length(h1)) gsub("</?h1>", "", h1) else "talks"
 body <- sub("<h1>.*?</h1>\\s*", "", body, perl = TRUE)
 
+# Each deck is an <h3> plus the prose under it, with nothing to hang a box on.
+# Wrap that run (up to the next heading) so the template can render it as a card.
+body <- gsub(
+  "(?s)(<h3>.*?</h3>)(.*?)(?=<h[23]|\\z)",
+  '<article class="deck">\\1\\2</article>\n',
+  body,
+  perl = TRUE
+)
+
 page <- read_file(".github/template.html")
 for (field in list(
   c("{{title}}", paste0(heading, " — Felix MIL")),

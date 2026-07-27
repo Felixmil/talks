@@ -34,6 +34,18 @@
   h3 a { text-decoration: none; }
   h3 a:hover { text-decoration: underline; }
 
+  .deck {
+    display: block;
+    margin: 1.1rem 0 0;
+    padding: 1.15rem 1.35rem 1.35rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    transition: border-color 0.15s ease;
+  }
+  .deck:hover { border-color: var(--muted); }
+  .deck h3 { margin: 0; }
+  .deck p { margin: 0.5rem 0 0; }
+
   p { margin: 0.7rem 0 0; }
   ul { margin: 0.9rem 0 0; padding-left: 1.1rem; }
   li { margin: 0.45rem 0 0; }
