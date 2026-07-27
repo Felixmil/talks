@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>talks — Felix MIL</title>
+<meta name="description" content="Slide decks I have presented, archived by date.">
+<style>
+  :root {
+    --bg: #0B1120;
+    --panel: #141C2E;
+    --line: rgba(140,160,190,0.16);
+    --text: #EEF2F8;
+    --muted: #93A0B5;
+    --body: #D7DEEA;
+    --accent: #4C8DFF;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 24px 96px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { padding: 88px 0 8px; }
+  .mark {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+    color: var(--accent); text-transform: uppercase;
+  }
+  .mark::before {
+    content: ""; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent);
+  }
+  h1 { font-size: clamp(38px, 7vw, 56px); font-weight: 900; margin: 18px 0 0; letter-spacing: -0.02em; }
+  .lede { color: var(--muted); font-size: 19px; margin: 14px 0 0; }
+  .note {
+    margin: 40px 0 0; padding: 20px 22px;
+    background: rgba(76,141,255,0.08);
+    border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: 12px; color: var(--body); font-size: 15px;
+  }
+  .note strong { color: var(--text); }
+  h2 {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); margin: 56px 0 0; padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .deck { display: block; padding: 26px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+  .deck:hover .deck-title { color: var(--accent); }
+  .deck:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+  .deck-date { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .deck-title { font-size: 23px; font-weight: 700; margin: 6px 0 0; transition: color .15s ease; }
+  .deck-desc { color: var(--muted); font-size: 15px; margin: 8px 0 0; }
+  .deck-meta { color: var(--muted); font-size: 13px; margin: 12px 0 0; }
+  .deck-meta a { color: var(--accent); }
+  code {
+    font-family: var(--mono); font-size: 0.88em;
+    background: var(--panel); border: 1px solid var(--line);
+    padding: 1px 6px; border-radius: 5px;
+  }
+  footer { margin-top: 64px; color: var(--muted); font-size: 14px; }
+  footer a { color: var(--accent); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="mark">Talks</div>
+    <h1>Slide decks</h1>
+    <p class="lede">Talks I have given, archived by the date they were presented.</p>
+  </header>
+
+  <p class="note">
+    Every deck here is a <strong>point-in-time snapshot</strong>, not maintained documentation. A deck is
+    correct on the day it was given and is expected to go stale afterwards. When a deck and a live
+    source disagree, the live source wins.
+  </p>
+
+  <h2>Decks</h2>
+
+  <a class="deck" href="2026-07-27-r-universe-for-osp.bento.html">
+    <div class="deck-date">2026-07-27</div>
+    <div class="deck-title">R-universe for the OSP R packages</div>
+    <p class="deck-desc">
+      Proposal walkthrough for the Open Systems Pharmacology maintainers: what R-universe is, what it
+      changes for dependency resolution, why builds pass while <code>R CMD check</code> does not, and
+      the remaining steps to full adoption.
+    </p>
+    <p class="deck-meta">
+      Status shown is as of 2026-07-21. Live checklist:
+      Open-Systems-Pharmacology/open-systems-pharmacology.r-universe.dev issue #2.
+    </p>
+  </a>
+
+  <footer>
+    <p>
+      Decks are self-contained <a href="https://bento.page">Bento</a> files: one HTML file carries both
+      the slides and the editor. Press <code>F</code> or the present button to go fullscreen; arrow keys
+      move between slides.
+    </p>
+    <p>Source: <a href="https://github.com/Felixmil/talks">github.com/Felixmil/talks</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
