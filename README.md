@@ -19,14 +19,21 @@ Status shown is as of 2026-07-21; the live checklist is [OSP r-universe issue #2
 - Decks are not edited after the fact. If the content needs to change, that is a new deck with a new date.
 - Adding a deck means committing the file and adding a section under **Decks** above. That is the only list to maintain, since the site is generated from this file.
 
+## Formats
+
+Two kinds of deck live here, and both end up as a single HTML file:
+
+- **Bento** (`.bento.html`), self-contained already: one file carries both the slides and the editor, so opening it in a browser is enough to present or edit it.
+- **Quarto** (`.qmd`), rendered at build time. Set `embed-resources: true` in the deck's YAML header so it renders to one file like the rest. If it does not, the sidecar `_files` directory is copied too and the deck still works.
+
 ## How the site is built
 
-`.github/workflows/pages.yml` runs on every push to `main`. It renders this README into `index.html` using the template in `.github/build.py`, copies the decks alongside it, and deploys the result to GitHub Pages. Nothing is generated into the repository itself, so there is no build output to commit and no second copy of the deck list to keep in sync.
+`.github/workflows/pages.yml` runs on every push to `main`. It calls `.github/build.R`, which converts this README into `index.html` using `.github/template.html`, renders any Quarto decks, copies the Bento decks through untouched, and deploys the result to GitHub Pages.
 
-To preview the site locally:
+Nothing is generated into the repository itself, so there is no build output to commit and no second copy of the deck list to keep in sync.
+
+To preview the site locally, with R and Quarto installed:
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -q markdown && .venv/bin/python .github/build.py && open _site/index.html
+Rscript .github/build.R && open _site/index.html
 ```
-
-Decks are self-contained [Bento](https://bento.page) files: one HTML file carries both the slides and the editor, so opening one in a browser is enough to present or edit it.
